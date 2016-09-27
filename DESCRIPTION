@@ -11,3 +11,5 @@ LazyLoad: Yes
 RoxygenNote: 5.0.1
 Date: 2016-08-20
 Imports: ABCoptim, DEoptim, copulaedas, genalg, pso, tabuSearch, methods
+URL: https://github.com/joaoctm123/
+BugReports: https://github.com/joaoctm123/
