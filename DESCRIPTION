@@ -1,0 +1,13 @@
+Package: rmo
+Type: Package
+Title: R Modern Optimization Package
+Version: 0.1.0
+Author: Joao Carlos Torres Arantes Maia
+Maintainer: Joao Maia <joao.arantes.maia@gmail.com>
+Description: Today, a great number of tasks can be viewed as an optimization problem, where the goal is to minimize of maximize a given goal. Otimization problems exists in many areas such as Agriculture, Banking, Engineering, Finance and many more. With the optimization problems getting complex and computers processing getting better by the time, the use of computers to solve optimization problems was more frequent. For that were created many algorithms to solve the optimization task. The propose of this package is to make a junction of the many optimization algorithms that exists to the R tool. With this package a user can perform optimization tasks in a easier way, than using a single package with a single optimization method.
+License: GPL-2
+LazyData: TRUE
+LazyLoad: Yes
+RoxygenNote: 5.0.1
+Date: 2016-08-20
+Imports: ABCoptim, DEoptim, copulaedas, genalg, pso, tabuSearch, methods
