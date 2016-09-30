@@ -20,7 +20,9 @@ library(rmo)
 rmoptim(method, D, lb, ub, type, eval, control = list())
 ```
 
-
+method - 
+  - "fbs" - Full Blind Search
+  - "grs" - Grid search
 ## Contact 
 
 Author: João Carlos Torres Arantes Maia
