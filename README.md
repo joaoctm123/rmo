@@ -32,6 +32,13 @@ method:
   - "gea" - Genetic and Evolutionary Algorithms
   - "pso" - Particle Swarm Optimization
   - "abc" - Artificial Bee Colony
+  
+D: Number of paramters to be optimized.
+lb: Lower bounds.
+ub: Upper bounds.
+type: Type of optimization problem "max" or "min".
+eval: Evaluation Function
+
 ## Contact 
 
 Author: João Carlos Torres Arantes Maia
