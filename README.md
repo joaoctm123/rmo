@@ -17,6 +17,7 @@ library(rmo)
 ## Contact 
 
 Author: João Carlos Torres Arantes Maia
+
 With supervision of: Paulo Alexandre Ribeiro Cortez
 
 Email: joao.arantes.maia@gmail.com
