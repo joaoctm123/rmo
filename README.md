@@ -1,3 +1,3 @@
 # rmo
 
-TESTE
+TEST
