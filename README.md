@@ -10,6 +10,7 @@ To make the installation of this package through GitHub it is necessary to follo
 
 ```r
 install.packages("devtools")
+devtools::install_github("joaoctm123/rmo")
 library(rmo)
 ```
 
