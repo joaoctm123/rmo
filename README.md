@@ -64,6 +64,6 @@ demo("rmo")
 
 Author: João Carlos Torres Arantes Maia
 
-With supervision of: Paulo Alexandre Ribeiro Cortez
+With supervision of: Teacher Paulo Alexandre Ribeiro Cortez
 
 Email: joao.arantes.maia@gmail.com
