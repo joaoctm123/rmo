@@ -41,7 +41,13 @@ ub: Upper bounds.
 
 type: Type of optimization problem "max" or "min".
 
-eval: Evaluation Function
+eval: Evaluation function to be optimized.
+
+control: list with extra parameters to change the execution behavior
+
+## Examples
+
+
 
 ## Contact 
 
