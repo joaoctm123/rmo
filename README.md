@@ -9,6 +9,7 @@ Today, a great number of tasks can be viewed as an optimization problem, where t
 To make the installation of this package through GitHub it is necessary to follow theese steps:
 
 ```r
+install.packages("devtools")
 library(rmo)
 ```
 
