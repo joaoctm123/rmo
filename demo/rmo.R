@@ -122,7 +122,7 @@ fun <- function(x) {
 pause()
 ## Method: Grid Search
 ## rmoptim('grs',2,-20,20,'min',fun,list(numb='real',step=2))
-rmoptim("grs",2,-20,20,"min",fun,list(numb="real",step=2))
+rmoptim("grs",2,-20,20,"min",fun,list(numb="real",step=0.1))
 
 
 pause()
@@ -183,68 +183,69 @@ pause()
 ## Binary Maximization Problem
 ## This method performs the sum of all the dimension values.
 ## Only with two iterations can perform the sum of all values.
-## For example, the first solution is c(0,1,0,0,1), so the sum will be 2. After that will be done one more iteration, and the best solution will be found.
+## For example, the first solution is c(0,1,0,0,1,0,1,0), so the sum will be 2. After that will be done one more iteration,
+## and the best solution will be found.
 ## lower: 0
 ## upper: 1
-## D: 5
+## D: 8
 sumbin <- function(x) sum(x)
 
 
 pause()
 ## Method: Full Blind Search
-## rmoptim('fbs',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("fbs",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+## rmoptim('fbs',8,0,1,'max',sumbin,list(numb='bin'))
+rmoptim("fbs",8,0,1,"max",sumbin,list(numb="bin"))
 
 
 pause()
 ## Method: Particle Swarm Optimization
-## rmoptim('pso',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("pso",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+## rmoptim('pso',8,0,1,'max',sumbin,list(numb='bin',iter=2))
+rmoptim("pso",8,0,1,"max",sumbin,list(numb="bin",iter=2))
 
 
 pause()
 ## Method: Simulated Annealing
-## rmoptim('sann',5,1,1000,'max',profit,list(numb="bin",iter=2))
-rmoptim("sann",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+## rmoptim('sann',8,1,1000,'max',profit,list(numb="bin",iter=2))
+rmoptim("sann",8,0,1,"max",sumbin,list(numb="bin",iter=2))
 
 
 pause()
 ## Method: Hill Climb
-## rmoptim('hlc',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("hlc",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+## rmoptim('hlc',8,0,1,'max',sumbin,list(numb='bin',iter=2))
+rmoptim("hlc",8,0,1,"max",sumbin,list(numb="bin",iter=2))
 
 
 pause()
 ## Method: Monte Carlo Search
-## rmoptim('mcs',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("mcs",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+## rmoptim('mcs',8,0,1,'max',sumbin,list(numb='bin',iter=2))
+rmoptim("mcs",8,0,1,"max",sumbin,list(numb="bin",iter=2))
 
 
 pause()
 ## Method: Differential Evolution
-## rmoptim('dfev',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("dfev",5,0,1,"max",sumbin,list(iter=2))
+## rmoptim('dfev',8,0,1,'max',sumbin,list(numb='bin',iter=2))
+rmoptim("dfev",8,0,1,"max",sumbin,list(numb="bin",iter=2))
 
 
 pause()
 ## Method: Genetic and Evolutionary Algorithms
-## rmoptim('gea',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("gea",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+## rmoptim('gea',8,0,1,'max',sumbin,list(numb='bin',iter=2))
+rmoptim("gea",8,0,1,"max",sumbin,list(numb="bin",iter=2))
 
 
 pause()
 ## Method: Estimation of Distributioon Algorithm
-## rmoptim('eda',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-#rmoptim("eda",5,0,1,"max",sumbin,list(numb="bin"))
+## rmoptim('eda',8,0,1,'max',sumbin,list(numb='bin',iter=2))
+#rmoptim("eda",8,0,1,"max",sumbin,list(numb="bin"))
 
 
 pause()
 ## Method: Tabu Search
 ## rmoptim('tabu',3,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("tabu",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+rmoptim("tabu",8,0,1,"max",sumbin,list(numb="bin",iter=2))
 
 
 pause()
 ## Method: Artificial Bee Colony
-## rmoptim('abc',5,0,1,'max',sumbin,list(numb='bin',iter=2))
-rmoptim("abc",5,0,1,"max",sumbin,list(numb="bin",iter=2))
+## rmoptim('abc',8,0,1,'max',sumbin,list(numb='bin',iter=2))
+rmoptim("abc",8,0,1,"max",sumbin,list(numb="bin",iter=2))
