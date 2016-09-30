@@ -45,6 +45,12 @@ eval: Evaluation function to be optimized.
 
 control: list with extra parameters to change the execution behavior
 
+## Values
+
+The output of the function rmoptim is a list containing the optimized parameters "$sol" and the
+optimum value of the function "$fun".
+
+
 ## Examples
 
 
