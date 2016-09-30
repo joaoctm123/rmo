@@ -36,9 +36,9 @@ rmoptim<-function(method,D,lb,ub,type,eval,control = list()){
 	if(!typeof(control$numb)=="character" && !is.null(control) && !is.null(control$numb)){
 		stop("The type of data representation must be a string value\n  Ex: 'real' or 'bin' or 'int'")
 	}
-	if(!typeof(control$trace)=="logical" && !is.null(control) && !is.null(control$trace)){
-		stop("Trace parameter must be type logical")
-	}
+	#if(!typeof(control$trace)=="logical" && !is.null(control) && !is.null(control$trace)){
+	#	stop("Trace parameter must be type logical")
+	#}
 	options(warn=-1)
 
 	#If to know what's the length of var lower or upper. This helps to know how to manipulate the lower bounds
@@ -592,6 +592,7 @@ rmoptim<-function(method,D,lb,ub,type,eval,control = list()){
 			iter=control$iters
 		}
 
+
 		if(type=="max"){
 			fn=function(x) -eval(x)
 		} else if(type=="min"){
@@ -757,16 +758,29 @@ rmoptim<-function(method,D,lb,ub,type,eval,control = list()){
 
 		if(numb=="real"){
 
-			cat("Optimum Solution: ", D$optim$bestmem, " - ", abs(D$optim$bestval),"\n")
-			res$sol=D$optim$bestmem
-			res$fun=abs(D$optim$bestval)
+			if(type=="max"){
+			  cat("Optimum Solution: ", D$optim$bestmem, " - ", abs(D$optim$bestval),"\n")
+			  res$sol=D$optim$bestmem
+			  res$fun=abs(D$optim$bestval)
+			} else {
+			  cat("Optimum Solution: ", D$optim$bestmem, " - ", D$optim$bestval,"\n")
+			  res$sol=D$optim$bestmem
+			  res$fun=D$optim$bestval
+			}
 
 		} else{
 
-			#in case the type of number is bin or integer, the number must be round
-			cat("Optimum Solution: ",round(D$optim$bestmem), " - ", round(abs(D$optim$bestval)),"\n")
-			res$sol=round(D$optim$bestmem)
-			res$fun=round(abs(D$optim$bestval))
+			if(type=="max"){
+			  #in case the type of number is bin or integer, the number must be round
+			  cat("Optimum Solution: ",round(D$optim$bestmem), " - ", round(abs(D$optim$bestval)),"\n")
+			  res$sol=round(D$optim$bestmem)
+			  res$fun=round(abs(D$optim$bestval))
+			} else {
+			  #in case the type of number is bin or integer, the number must be round
+			  cat("Optimum Solution: ",round(D$optim$bestmem), " - ", round(D$optim$bestval),"\n")
+			  res$sol=round(D$optim$bestmem)
+			  res$fun=round(D$optim$bestval)
+			}
 		}
 
 	}
@@ -801,7 +815,18 @@ rmoptim<-function(method,D,lb,ub,type,eval,control = list()){
 			} else {
 				cl$fnscale=1
 			}
+		} else if(type=="max"){
+
+		    cl$fnscale=-1
+
+		} else if(type=="min"){
+
+		    cl$fnscale=1
+
 		}
+
+
+
 		if(!is.null(cl$trace)){
 
 			if(cl$trace==TRUE){

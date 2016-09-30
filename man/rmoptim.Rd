@@ -76,13 +76,13 @@ The control argument is a list that can supply any of the following components:
   ## function only with two dimensions.
   ## Finally the last one, is a binary optimization problem, only with two iterations.
   ## The objective function performs the summation of all dimensions. Per example, if the
-  ## dimensions are (0,1,1,0,0), the sum is 2.
+  ## dimensions are (0,1,1,0,0,1,1,0), the sum is 4.
   \dontrun{
 
     demo(rmo)
   }
 
-  ## Some examples:
+  ## More examples:
 
   ## Real Number Optimization Problem
   ## Objective Function:
@@ -96,20 +96,60 @@ The control argument is a list that can supply any of the following components:
   ## Lower: -20
   ## Upper: 20
 
-  rmoptim("pso",2,-20,20,"min",fun,list(numb="real",reltol=2)) #using the Particle Swarm Optimization method
 
-  ## Also in this case can be percetible the use of the reltol variable in the control list
-  ## which changes the behavior in his execution
+  ## using the Particle Swarm Optimization method
+  rmoptim("pso",2,-20,20,"min",fun,list(numb="real",restart=2))
+
+  ## Also in this case can be percetible the use of the restart variable in the control list
+  ## which makes two restarts in the search process.
+  ## The user can set some parametrs in the control list, parameters from the official documentation
+  ## of the PSO package.
 
   ## Output:
   ## Particle Swarm Optimization
   ## Optimum Solution:  3.141602 3.141586  -  1
 
-  rmoptim("dfev",2,-20,20,"min",fun,list(numb="real")) #using the Differential Evolution method
+  ## Now the same method but with reporting
+  ## To set the reporting thats necessary to have the trace value set as TRUE
+  ## Then the package PSO, reports in 10 iterations.
+  rmoptim("pso",2,-20,20,"min",fun,list(numb="real",restart=2,REPORT=10,trace=TRUE))
+
+  ## Output:
+  ## Particle Swarm Optimization
+  ## S=12, K=3, p=0.2297, w0=0.7213, w1=0.7213, c.p=1.193, c.g=1.193
+  ## v.max=NA, d=56.57, vectorize=FALSE, hybrid=off
+  ## It 10: fitness=-0.5297
+  ## It 20: fitness=-0.9478
+  ## It 30: fitness=-0.9968
+  ## It 40: fitness=-0.9998
+  ## It 50: fitness=-0.9999
+  ## It 60: fitness=-1
+  ## It 70: fitness=-1
+  ## It 80: fitness=-1
+  ## It 90: fitness=-1
+  ## It 100: fitness=-1
+  ## Maximal number of iterations reached
+  ## Optimum Solution:  3.141594 3.141592  -  1
+
+  #using the Differential Evolution method
+  rmoptim("dfev",2,-20,20,"min",fun,list(numb="real"))
 
   ## Output:
   ## Differential Evolution
   ## Optimum Solution:  3.141593 3.141593  -  1
+
+  ## By default the package rmo, has in the control list a parameter to set the
+  ## maximum number of iterations. By default: iter=100.
+  ## In the DEoptim package who runs the Differential Evolution Method
+  ## has the parameter itermax. By default itermax=200.
+  rmoptim("dfev",2,-20,20,"min",fun,list(numb="real",iter=200))
+
+  ## Now a example with the itermax parameter
+  rmoptim("dfev",2,-20,20,"min",fun,list(numb="real",itermax=200))
+
+  ## With this, is pretended to show the way that can be manipulated
+
+
 
   rmoptim("abc",2,-20,20,"min",fun,list(numb="int",maxCycle=100))
 
@@ -124,7 +164,57 @@ The control argument is a list that can supply any of the following components:
   ## Optimum Solution:  3 3 -  1
 
 
+  ####################################################################################
+  ## Now will be represented a binary optimization problem
+  sumbin <- function(x) sum(x)
 
+
+  ## This function represents the sum of the binary values
+  ## Example x=c(0,1,0,1,1,0,0,0)
+  ## sum(x) = 3
+
+  ## For this example, will run only with two iterations, because if it is set more iterations
+  ## Will be always found the solution c(1,1,1,1,1,1,1,1)
+
+  ## First it's going to be tested the Full Blind Search method.
+  ## Because the search space is defined on the start and
+  ## all the possible solutions are tested
+
+  rmoptim("fbs",8,0,1,"max",sumbin,list(numb="bin"))
+
+  ## Output:
+  ## Full Blind Search
+  ## Optimum Solution:  1 1 1 1 1 1 1 1  -  5
+
+
+  ## This example will show, the method running with the number of iterations in default
+  rmoptim("pso",8,0,1,"max",sumbin,list(numb="bin"))
+
+  ## Output:
+  ## Particle Swarm Optimization
+  ## Optimum Solution:  1 1 1 1 1 1 1 1  -  8
+
+  ## But if the number of iterations sets to 2 iterations
+  ## The final value is going to be different
+
+  rmoptim("pso",8,0,1,"max",sumbin,list(numb="bin",iter=2))
+
+  ## Output:
+  ## Particle Swarm Optimization
+  ## Optimum Solution:  1 0 0 1 1 1 1 1  -  6
+
+  ## The execution is the same for every method.
+  rmoptim("hlc",8,0,1,"max",sumbin,list(numb="bin",iter=2))
+  ## Hill Climbing
+  ## Optimum Solution:  0 0 1 1 1 1 1 1  -  6
+
+  ## For this execution will be shown the execution of Tabu Search method
+  ## This method works only with binary values, which makes it the best
+  ## for this type of tasks.
+
+  rmoptim("tabu",8,0,1,"max",sumbin,list(numb="bin",iter=2))
+  Tabu Search
+  Optimum Solution:  1 0 0 1 1 0 0 1  -  4
 }
 \references{
 \itemize{
