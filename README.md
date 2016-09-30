@@ -7,4 +7,5 @@ Today, a great number of tasks can be viewed as an optimization problem, where t
 ## Contact 
 
 Author: Joao Carlos Torres Arantes Maia
+
 Email: joao.arantes.maia@gmail.com
