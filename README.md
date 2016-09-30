@@ -20,9 +20,18 @@ library(rmo)
 rmoptim(method, D, lb, ub, type, eval, control = list())
 ```
 
-method - 
+method:
   - "fbs" - Full Blind Search
   - "grs" - Grid search
+  - "hlc" - Hill Climb
+  - "msc" - Monte Carlo Search
+  - "tabu" - Tabu Search
+  - "sann" - Simulated Annealing
+  - "dfev" - Differential Evolution
+  - "eda" - Estimation of Distibution Algorithm
+  - "gea" - Genetic and Evolutionary Algorithms
+  - "pso" - Particle Swarm Optimization
+  - "abc" - Artificial Bee Colony
 ## Contact 
 
 Author: João Carlos Torres Arantes Maia
