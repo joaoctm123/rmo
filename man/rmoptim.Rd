@@ -213,8 +213,8 @@ The control argument is a list that can supply any of the following components:
   ## for this type of tasks.
 
   rmoptim("tabu",8,0,1,"max",sumbin,list(numb="bin",iter=2))
-  Tabu Search
-  Optimum Solution:  1 0 0 1 1 0 0 1  -  4
+  ## Tabu Search
+  ## Optimum Solution:  1 0 0 1 1 0 0 1  -  4
 }
 \references{
 \itemize{
