@@ -14,6 +14,13 @@ devtools::install_github("joaoctm123/rmo")
 library(rmo)
 ```
 
+## Usage
+
+```r
+rmoptim(method, D, lb, ub, type, eval, control = list())
+```
+
+
 ## Contact 
 
 Author: João Carlos Torres Arantes Maia

@@ -184,7 +184,7 @@ The control argument is a list that can supply any of the following components:
 
   ## Output:
   ## Full Blind Search
-  ## Optimum Solution:  1 1 1 1 1 1 1 1  -  5
+  ## Optimum Solution:  1 1 1 1 1 1 1 1  -  8
 
 
   ## This example will show, the method running with the number of iterations in default
