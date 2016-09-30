@@ -53,7 +53,12 @@ optimum value of the function "$fun".
 
 ## Examples
 
+To run some examples, type the following code:
 
+```r
+library(rmo)
+demo("rmo")
+```
 
 ## Contact 
 
