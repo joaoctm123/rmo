@@ -7,41 +7,34 @@
 rmoptim(method, D, lb, ub, type, eval, control = list())
 }
 \arguments{
-\item{method}{- Modern Optimization Method
+\item{method}{- type of optimization method (search engine)
 \itemize{
-\item \code{"fbs"} - Full Blind Search - It searches all the possible alternatives, where any of the previous solution doesn't affect the next solution
-                     being tested. This method only runs binary and integer optimization problems.
-\item \code{"grs"} - Grid Search - This method reduces the search of solutions by using a regular hyper dimensional search with a given step size. This method                         only runs integer and real optimization problems.
-\item \code{"mcs"} - Monte Carlo Search - Random generation of poins, using a given probability distribution.
-\item \code{"hlc"} - Hill Climb  - Local search method.
-\item \code{"sann"} - Simulated Anneling - Method like the Hill Climb. Uses optim function
-from R \url{https://stat.ethz.ch/R-manual/R-devel/library/stats/html/optim.html}
-\item \code{"tabu"} - Tabu Search - It uses a list with previous solutions to force the search into new areas. It uses \code{\link[tabuSearch]{tabuSearch}}
-\item \code{"gea"} - Genetic and Evolutionary Algorithms - Population based method with a population of competing solutions.
-It uses \code{\link[genalg]{rbga}} or \code{\link[genalg]{rbga.bin}} for binary problems.
-\item \code{"dfev"} - Differential Evolution - Similar to \code{"gea"},but uses arithmetic operators to generate a new solution.
-It uses \code{\link[DEoptim]{DEoptim}}
-\item \code{"pso"} - Particle Swarm Optimization - Belongs to a family of methods who are naturally inspired. It uses \code{\link[pso]{psoptim}}
-\item \code{"eda"} - Estimation of Distribution Algorithm - This method combines ideas from evolutionary computation, machine learning and statistics.
-It uses \code{\link[copulaedas]{edaRun}}
-\item \code{"abc"} - Artificial Bee Colony - Based on Bees behavior. It uses \code{\link[ABCoptim]{abc_optim}}
+\item \code{"fbs"} - Full Blind Search - searches all the possible alternatives. It only works for binary and integer optimization problems.
+\item \code{"grs"} - Grid Search - uses a hyper dimensional grid search that is dependent on a step size. It only works on integer and real optimization tasks.
+\item \code{"mcs"} - Monte Carlo Search - random search according to a given probability distribution.
+\item \code{"hlc"} - Hill Climb  - local search method.
+\item \code{"sann"} - Simulated Annealing - uses \code{\link{optim}} function \url{https://stat.ethz.ch/R-manual/R-devel/library/stats/html/optim.html}.
+\item \code{"tabu"} - Tabu Search - uses \code{\link[tabuSearch]{tabuSearch}}
+\item \code{"gea"} - Genetic and Evolutionary Algorithms - population based method that
+uses \code{\link[genalg]{rbga}} (or \code{\link[genalg]{rbga.bin}} for binary tasks).
+\item \code{"dfev"} - Differential Evolution - uses \code{\link[DEoptim]{DEoptim}}.
+\item \code{"pso"} - Particle Swarm Optimization - uses \code{\link[pso]{psoptim}}.
+\item \code{"eda"} - Estimation of Distribution Algorithm - uses \code{\link[copulaedas]{edaRun}}.
+\item \code{"abc"} - Artificial Bee Colony - uses \code{\link[ABCoptim]{abc_optim}}.
 }}
+\item{D}{- Dimension, the number of elements, variables or parameters to be optimized}
 
-\item{D}{- Dimension, the number of elements to be optimized}
+\item{lb,ub}{- two values or two vectors setting the real lower and upper bounds for each parameter
+                  to be optimized (used for integer or real value optimization).}
 
-\item{lb,ub}{- two values or two vectors specifying scalar real lower and upper bounds on each parameter
-                  to be optimized, so that the i-th element of lower and upper applies to the ith
-                  parameter. The implementation searches between lower and upper for the
-                  global optimum eval.}
+\item{type}{- type of optimization goal - \code{"max"} for maximization or \code{"min"} for minimization.}
 
-\item{type}{- Function Type - "max" for maximization problem or "min" for minimization problem}
-
-\item{eval}{- Evaluation function to be minimized or maximized.}
+\item{eval}{- Evaluation function to be minimized or maximized. This function needs to return a numeric value.}
 
 \item{control}{- A list of control parameters. See "Details"}
 }
 \value{
-The output of the function \code{rmoptim} is a list containing the optimized parameters \code{"$sol"} and the optimum value of the function \code{"$fun"}.
+The output of the function \code{rmoptim} is a list containing the optimized parameters \code{"$sol"} and the optimum searched value \code{"$fun"}.
 }
 \description{
 A vast number of real-world tasks can be viewed as an optimization problem, where the goal is to minimize or maximize a given goal. This package encompasses in a single and simply to use function (rmoptim) several modern optimization algorithms (metaheuristics) that are spread across distinct packages. Examples of implemented methods are: grid search, hill climbing, tabu search, simulated annealing, differential evolution, estimation of distribution algorithms, genetic and evolutionary algorithms, particle swarm optimization and artificial bee colony.
@@ -50,15 +43,10 @@ A vast number of real-world tasks can be viewed as an optimization problem, wher
 The control argument is a list that can supply any of the following components:
 \itemize{
 \item \strong{iter} - The maximum number of iterations.
-\item \strong{step} - Mandatory control parameter to the use of Grid Search. See examples to know how to use it.
- 	\item \strong{numb} - Type of data representation of the final solution. \code{bin} for binary solutions and automatically sets lower and upper bounds to 0 and 1 respectively. \code{real} for real number solutions or \code{int} for integer solutions. By default sets \code{real} for optimization problems.
- \item \strong{...} - Also the user can insert other parameters to change the behavior of the method. For example, in the \code{"SANN"} method, by default
- the \code{"temp"} parameter is set to 10. But if the user wants to change it, he just needs to insert the parameter \code{"temp"} in the control list, then
- the package automatically sets the parameter to the value inserted by the user.
- The user can set as much parameters as he wants, it's only necessary to follow the original documentation of the method, that is referenced in the References
- topic.
-
-}
+\item \strong{step} - Mandatory control parameter to the use of Grid Search (see examples).
+  \item \strong{numb} - Type of data representation of the final solution. \code{bin} for binary solutions and automatically sets lower and upper bounds to 0 and 1 respectively. \code{real} for real number solutions or \code{int} for integer solutions. By default sets \code{real} for optimization problems.
+ \item \strong{...} - Other parameters. For example, in the \code{"SANN"} method of the \code{\link{optim}} function the default
+value for \code{"temp"} is 10. But if the user wants to use a different value, then she/he just needs to insert the parameter \code{"temp"} in the control list.}
 }
 \examples{
   ## Demo function that executes three types of optimization. The objective of this Demo function
