@@ -6,7 +6,7 @@ sumbin <- function(x) sum(x)  #professor
 ### functions.R file ###
 # compute the bag factory profit for x:
 #    x - a vector of prices
-profit<-function(x)    # x - a vector of prices
+profit1<-function(x)    # x - a vector of prices
 { x=round(x,digits=0) # convert x into integer
   s=sales(x)          # get the expected sales
   c=cost(s)           # get the expected cost

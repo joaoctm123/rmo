@@ -2,7 +2,9 @@
 
 ## Description
 
-Today, a great number of tasks can be viewed as an optimization problem, where the goal is to minimize of maximize a given goal. Otimization problems exists in many areas such as Agriculture, Banking, Engineering, Finance and many more. With the optimization problems getting complex and computers processing getting better by the time, the use of computers to solve optimization problems was more frequent. For that were created many algorithms to solve the optimization task. The propose of this package is to make a junction of the many optimization algorithms that exists to the R tool. With this package a user can perform optimization tasks in a easier way, than using a single package with a single optimization method.
+A vast number of real-world tasks can be viewed as an optimization problem, where the goal is to minimize or maximize a given goal. This package encompasses in a single and simply to use function (rmoptim) several modern optimization algorithms (metaheuristics) that are spread across distinct packages. Examples of implemented methods are: grid search, hill climbing, tabu search, simulated annealing, differential evolution, estimation of distribution algorithms, genetic and evolutionary algorithms, particle swarm optimization and artificial bee colony.
+
+
 
 ## Installation
 
@@ -64,6 +66,6 @@ demo("rmo")
 
 Author: João Carlos Torres Arantes Maia
 
-With supervision of: Teacher Paulo Alexandre Ribeiro Cortez
+With supervision of: Paulo Cortez
 
 Email: joao.arantes.maia@gmail.com

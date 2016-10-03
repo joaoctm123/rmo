@@ -16,7 +16,7 @@ pause <- function() {
 ## lower: 1
 ## upper: 1000
 ## D: 5
-## objective function: profit
+## objective function: profit1
 ## type: "max"
 
 
@@ -24,8 +24,8 @@ pause <- function() {
 pause()
 ## Method: Full Blind Search
 ## This method works with a defined search space, which means that the optimum solution is always found.
-## rmoptim('fbs',5,1,1000,'max',profit)
-rmoptim("fbs",5,1,1000,"max",profit)
+## rmoptim('fbs',5,1,1000,'max',profit1)
+rmoptim("fbs",5,1,1000,"max",profit1)
 
 
 pause()
@@ -33,8 +33,8 @@ pause()
 ## The Grid Search method requires always the "step" parameter. This parameter it is the "jump" that the execution does, to find another solution.
 ## This parameter needs to be defined in the control list.
 ## This method takes some time to find de optimum solution.
-## rmoptim('grs',5,1,1000,'max',profit,list(step=100))
-rmoptim("grs",5,1,1000,"max",profit,list(step=100))
+## rmoptim('grs',5,1,1000,'max',profit1,list(step=100))
+rmoptim("grs",5,1,1000,"max",profit1,list(step=100))
 
 
 pause()
@@ -42,67 +42,67 @@ pause()
 ## To show the different functionalities of this package, the user can set a lower and upper value for each dimension.
 ## And the optimium solution is found respecting the lower and upper values.
 ## The rep function performs this: rep(1000,5) is the same as getting (1000,1000,1000,1000,1000)
-## rmoptim('pso',5,rep(1,5),rep(1000,5),'max',profit)
-rmoptim("pso",5,rep(1,5),rep(1000,5),"max",profit)
+## rmoptim('pso',5,rep(1,5),rep(1000,5),'max',profit1)
+rmoptim("pso",5,rep(1,5),rep(1000,5),"max",profit1)
 
 
 pause()
 ## Method: Simulated Annealing
 ## In this example, will be shown that is possible to change the behavior of the execution by adding some parameters of the native method.
 ## To know what parameters the user can add to the execution, is better to read the official documentation of the respective package.
-## rmoptim('sann',5,1,1000,'max',profit,list(temp=100))
-rmoptim("sann",5,1,1000,"max",profit,list(temp=100))
+## rmoptim('sann',5,1,1000,'max',profit1,list(temp=100))
+rmoptim("sann",5,1,1000,"max",profit1,list(temp=100))
 
 
 pause()
 ## Method: Hill Climb
 ## By default the maximum number of iterations of each method to find the optimum solution is 100. So in this case will be shown the execution with 200 iterations.
-## rmoptim('hlc',5,1,1000,'max',profit,list(iter=200))
-rmoptim("hlc",5,1,1000,"max",profit,list(iter=200))
+## rmoptim('hlc',5,1,1000,'max',profit1,list(iter=200))
+rmoptim("hlc",5,1,1000,"max",profit1,list(iter=200))
 
 
 pause()
 ## Method: Monte Carlo Search
 ## In this case will be shown the lower and upper being set by a vector.
-## rmoptim('mcs',5,c(1,1,1,1,1),c(1000,1000,1000,1000,1000),'max',profit)
-rmoptim("mcs",5,c(1,1,1,1,1),c(1000,1000,1000,1000,1000),"max",profit)
+## rmoptim('mcs',5,c(1,1,1,1,1),c(1000,1000,1000,1000,1000),'max',profit1)
+rmoptim("mcs",5,c(1,1,1,1,1),c(1000,1000,1000,1000,1000),"max",profit1)
 
 
 pause()
 ## Method: Differential Evolution
 ## For this execution will be set the maximum price for of $100 for the first bag.
-## rmoptim('dfev',5,1,c(100,1000,1000,1000,1000),'max',profit)
-rmoptim("dfev",5,1,c(100,1000,1000,1000,1000),"max",profit)
+## rmoptim('dfev',5,1,c(100,1000,1000,1000,1000),'max',profit1)
+rmoptim("dfev",5,1,c(100,1000,1000,1000,1000),"max",profit1)
 
 
 pause()
 ## Method: Genetic and Evolutionary Algorithms
-## Because this is a integer problem, and the profit function always returns an integer value, there is no need to indicate that this is a integer problem.
+## Because this is a integer problem, and the profit1 function always returns an integer value, there is no need to indicate that this is a integer problem.
 ## If the user wants to indicate that this is a integer problem, it is only necessary to add the parameter "numb" in the control list and set them to "int".
-## rmoptim('gea',5,1,1000,'max',profit,list(numb="int"))
-rmoptim("gea",5,1,1000,"max",profit,list(numb="int"))
+## rmoptim('gea',5,1,1000,'max',profit1,list(numb="int"))
+rmoptim("gea",5,1,1000,"max",profit1,list(numb="int"))
 
 
 pause()
 ## Method: Estimation of Distribution Algorithm
-## rmoptim('eda',5,1,1000,'max',profit)
-#rmoptim("eda",5,1,1000,"max",profit)
+## rmoptim('eda',5,1,1000,'max',profit1)
+#rmoptim("eda",5,1,1000,"max",profit1)
 
 
 pause()
 ## Method: Tabu Search
 ## The method Tabu Search only works with one lower and one upper. That means if the user puts a vector as a parameter, the function only sets the lower and upper
 ## with maximum and minimum values.
-## rmoptim('tabu',5,1,1000,'max',profit)
-rmoptim("tabu",5,1,1000,"max",profit)
+## rmoptim('tabu',5,1,1000,'max',profit1)
+rmoptim("tabu",5,1,1000,"max",profit1)
 
 
 pause()
 ## Method: Artificial Bee Colony
 ## Other possibility is to set the initial values to search. This is possible with the "par" parameter.
 ## For this case will be set with the following result rep(NA,5)
-## rmoptim('abc',5,1,1000,'max',profit,list(par=rep(NA,5)))
-rmoptim("abc",5,1,1000,"max",profit,list(par=rep(NA,5)))
+## rmoptim('abc',5,1,1000,'max',profit1,list(par=rep(NA,5)))
+rmoptim("abc",5,1,1000,"max",profit1,list(par=rep(NA,5)))
 
 
 pause()
@@ -133,7 +133,7 @@ rmoptim("pso",2,-20,20,"min",fun,list(numb="real"))
 
 pause()
 ## Method: Simulated Annealing
-## rmoptim('sann',5,1,1000,'max',profit,)
+## rmoptim('sann',5,1,1000,'max',fun)
 rmoptim("sann",2,-20,20,"min",fun,list(numb="real"))
 
 
