@@ -35,15 +35,15 @@ method:
   - "pso" - Particle Swarm Optimization
   - "abc" - Artificial Bee Colony
   
-D: Number of paramters to be optimized.
+D: Dimension, the number of elements, variables or parameters to be optimized.
 
 lb: Lower bounds.
 
 ub: Upper bounds.
 
-type: Type of optimization problem "max" or "min".
+type: type of optimization goal - max for maximization or min for minimization.
 
-eval: Evaluation function to be optimized.
+eval: Evaluation function to be minimized or maximized. This function needs to return a numeric value.
 
 control: list with extra parameters to change the execution behavior
 
