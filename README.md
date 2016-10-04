@@ -62,6 +62,12 @@ library(rmo)
 demo("rmo")
 ```
 
+## Feedback
+
+We would like to know your opinion about the package by filling this 
+short form: https://goo.gl/forms/4GirrUm8rNHGWzis1
+
+
 ## Contact 
 
 Author: João Carlos Torres Arantes Maia
