@@ -62,6 +62,10 @@ library(rmo)
 demo("rmo")
 ```
 
+## Manual
+
+https://www.dropbox.com/s/4luyr528owpozl0/rmo-manual.pdf?dl=0
+
 ## Feedback
 
 We would like to know your opinion about the package by filling this 
